@@ -17,7 +17,7 @@ namespace Entities.Concrete
         public string Phone { get; set; }
         public string GovId { get; set; }
         public string PassportNumber { get; set; }
-        public int PNR { get; set; }
+        public string Pnr { get; set; }
         public int CustomerId { get; set; }
         public decimal SalesPrice { get; set; }
         public int SalesBranchId { get; set; }
