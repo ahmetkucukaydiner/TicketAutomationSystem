@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{FBE1CA1D-2DB0-40E1-B427-B02327FC7C8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{076E0AFB-2524-476D-A311-DB5F23E8AFC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{076E0AFB-2524-476D-A311-DB5F23E8AFC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{B693402F-36E9-409E-BE94-EA90D80C677D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{B693402F-36E9-409E-BE94-EA90D80C677D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{0BB11887-890A-4FA8-91DE-2D4A04903D2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B693402F-36E9-409E-BE94-EA90D80C677D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B693402F-36E9-409E-BE94-EA90D80C677D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B693402F-36E9-409E-BE94-EA90D80C677D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB11887-890A-4FA8-91DE-2D4A04903D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB11887-890A-4FA8-91DE-2D4A04903D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB11887-890A-4FA8-91DE-2D4A04903D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB11887-890A-4FA8-91DE-2D4A04903D2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
