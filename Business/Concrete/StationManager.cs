@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspect.Validation;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
@@ -21,6 +24,8 @@ namespace Business.Concrete
             return new SuccessDataResult<Station>(_stationDal.Get(x => x.Id == id));
         }
 
+        [SecuredOperation("station.add")]
+        [ValidationAspect(typeof(StationValidator))]
         public IResult Add(Station station)
         {
             _stationDal.Add(station);
