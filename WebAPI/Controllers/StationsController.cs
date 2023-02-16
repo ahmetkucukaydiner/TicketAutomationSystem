@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Microsoft.AspNetCore.Http;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         {
             var result = _stationService.GetAll();
 
-            if(result.Success)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -28,12 +28,51 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet]
+        [HttpGet("get")]
         public IActionResult GetById(int id)
         {
             var result = _stationService.GetById(id);
 
-            if(result.Success)
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Station station)
+        {
+            var result = _stationService.Add(station);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Station station)
+        {
+            var result = _stationService.Delete(station);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("update")]
+        public IActionResult Update(Station station)
+        {
+            var result = _stationService.Update(station);
+
+            if (result.Success)
             {
                 return Ok(result);
             }

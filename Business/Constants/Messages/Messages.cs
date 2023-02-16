@@ -6,5 +6,6 @@
         public static string StationDeleted = "Durak silindi.";
         public static string StationUpdated = "Durak güncellendi.";
         public static string AuthorizationDenied = "Bu işlemi yapmak için yetkiniz yok.";
+        public static string StationNameAlreadyExists = "Aynı isimle durak mevcut.";
     }
 }
