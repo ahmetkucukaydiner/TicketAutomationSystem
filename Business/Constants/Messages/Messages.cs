@@ -13,5 +13,11 @@
         public static string BusDeleted = "Otobüs silindi.";
         public static string BusUpdated = "Otobüs güncellendi.";
         public static string StationNameAlreadyExists = "Durak zaten mevcut!";
+        public static string BusOwnerAdded = "Otobüs sahibi eklendi.";
+        public static string BusOwnerDeleted = "Otobüs sahibi silindi.";
+        public static string BusOwnerUpdated = "Otobüs sahibi güncellendi.";
+        public static string BusStaffAdded = "Personel eklendi.";
+        public static string BusStaffDeleted = "Personel silindi.";
+        public static string BusStaffUpdated = "Personel güncellendi.";
     }
 }
