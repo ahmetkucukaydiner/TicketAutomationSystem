@@ -17,14 +17,19 @@ namespace Business.Concrete
     public class StationManager : IStationService
     {
         private IStationDal _stationDal;
+        
 
+        [SecuredOperation("station.getall")]
+        [CacheAspect]
         [PerformanceAspect(3)]
         public IDataResult<List<Station>> GetAll()
         {
             return new SuccessDataResult<List<Station>>(_stationDal.GetAll());
         }
 
+        [SecuredOperation("station.get")]
         [CacheAspect]
+        [PerformanceAspect(3)]
         public IDataResult<Station> GetById(int id)
         {
             return new SuccessDataResult<Station>(_stationDal.Get(x => x.Id == id));
@@ -46,12 +51,18 @@ namespace Business.Concrete
             return new SuccessResult(Messages.StationAdded);
         }
 
+        [SecuredOperation("station.delete")]
+        [ValidationAspect(typeof(StationValidator))]
+        [CacheRemoveAspect("IStationService.Get")]
         public IResult Delete(Station station)
         {
             _stationDal.Delete(station);
             return new SuccessResult(Messages.StationDeleted);
         }
 
+        [SecuredOperation("station.update")]
+        [ValidationAspect(typeof(StationValidator))]
+        [CacheRemoveAspect("IStationService.Get")]
         public IResult Update(Station station)
         {
             _stationDal.Update(station);
