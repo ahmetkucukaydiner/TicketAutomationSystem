@@ -19,5 +19,11 @@
         public static string BusStaffAdded = "Personel eklendi.";
         public static string BusStaffDeleted = "Personel silindi.";
         public static string BusStaffUpdated = "Personel güncellendi.";
+        public static string CustomerAdded = "Yeni müşteri eklendi.";
+        public static string CustomerDeleted = "Müşteri silindi.";
+        public static string CustomerUpdated = "Müşteri güncellendi.";
+        public static string JourneyAdded = "Yeni sefer eklendi";
+        public static string JourneyDeleted = "Sefer silindi";
+        public static string JourneyUpdated = "Sefer bilgileri güncellendi.";
     }
 }
