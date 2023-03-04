@@ -8,7 +8,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server =(localdb)\MSSQLLocalDB; Database = TAS; Trusted_Connection = true ");
+            optionsBuilder.UseSqlServer(@"Server =(localdb)\MSSQLLocalDB; Database = TAS; Trusted_Connection = true");
         }
 
         public DbSet<Branch> Branches { get; set; }

@@ -25,5 +25,14 @@
         public static string JourneyAdded = "Yeni sefer eklendi";
         public static string JourneyDeleted = "Sefer silindi";
         public static string JourneyUpdated = "Sefer bilgileri güncellendi.";
+        public static string UserAdded = "Kullanıcı eklendi.";
+        public static string UserDeleted = "Kullanıcı silindi.";
+        public static string UserUpdated = "Kullanıcı güncellendi.";
+        public static string UserRegistered = "Kayıt olundu.";
+        public static string UserNotFound = "Kullanıcı bulunmadı.";
+        public static string PasswordError = "Hatalı şifre girdiniz";
+        public static string SuccessfullLogin = "Giriş başarılı.";
+        public static string UserAlreadyExists = "Bu kullanıcı adı kullanılıyor.";
+        public static string AccessTokenCreated = "Token oluşturuldu.";
     }
 }

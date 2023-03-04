@@ -3,7 +3,9 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspect.Autofac.Caching;
+using Core.Aspect.Autofac.Logging;
 using Core.Aspect.Autofac.Performance;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -17,8 +19,13 @@ namespace Business.Concrete
     public class StationManager : IStationService
     {
         private IStationDal _stationDal;
-        
 
+        public StationManager(IStationDal stationDal)
+        {
+            _stationDal = stationDal;
+        }
+
+        [LogAspect(typeof(DatabaseLogger))]
         [SecuredOperation("station.getall")]
         [CacheAspect]
         [PerformanceAspect(3)]

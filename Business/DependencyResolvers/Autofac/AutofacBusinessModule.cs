@@ -3,6 +3,8 @@ using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
+using Core.CrossCuttingConcerns.Logging.Serilog;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.Jwt;
 using DataAccess.Abstract;
@@ -18,6 +20,8 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<StationManager>().As<IStationService>().SingleInstance();
             builder.RegisterType<EfStationDal>().As<IStationDal>().SingleInstance();
+
+            builder.RegisterType<DatabaseLogger>().As<LoggerService>().SingleInstance();
 
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
 

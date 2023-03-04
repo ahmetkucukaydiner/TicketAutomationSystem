@@ -3,14 +3,13 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspect.Autofac.Caching;
+using Core.Aspect.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Text;
 
 namespace Business.Concrete
 {
@@ -23,6 +22,7 @@ namespace Business.Concrete
             _busDal = busDal;
         }
 
+        [LogAspect(typeof(DatabaseLogger))]
         [SecuredOperation("bus.add")]
         [ValidationAspect(typeof(BusValidator))]
         [CacheRemoveAspect("IBusService.Get")]
