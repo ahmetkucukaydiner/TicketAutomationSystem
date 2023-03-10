@@ -4,7 +4,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog
 {
     public abstract class LoggerService
     {
-        protected ILogger Logger;
+        protected ILogger Logger { get; set; }
 
         public void Verbose(string message) => Logger.Verbose(message);
         public void Error(string message) => Logger.Error(message);

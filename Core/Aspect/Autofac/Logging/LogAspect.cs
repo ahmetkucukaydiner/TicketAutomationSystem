@@ -2,6 +2,7 @@
 using Core.CrossCuttingConcerns.Logging;
 using Core.CrossCuttingConcerns.Logging.Serilog;
 using Core.Utilities.Interceptors;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -21,12 +22,12 @@ namespace Core.Aspect.Autofac.Logging
             _loggerService = (LoggerService)Activator.CreateInstance(loggerService);
         }
 
-        public override void Intercept(IInvocation invocation)
+        protected override void OnBefore(IInvocation invocation)
         {
             _loggerService.Info(GetLogDetail(invocation).ToString());
         }
 
-        private LogDetail GetLogDetail(IInvocation invocation)
+        private LogDetailWithException GetLogDetail(IInvocation invocation)
         {
             var logParameters = new List<LogParameter>();
 
@@ -40,11 +41,13 @@ namespace Core.Aspect.Autofac.Logging
                 });
             }
 
-            var logDetail = new LogDetail
+            var logDetail = new LogDetailWithException
             {
                 MethodName = invocation.Method.Name,
                 LogParameters = logParameters
             };
+
+            _loggerService.Info(JsonConvert.SerializeObject(logDetail));
 
             return logDetail;
         }

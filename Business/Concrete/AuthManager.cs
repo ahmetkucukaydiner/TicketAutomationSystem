@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants.Messages;
+using Core.Aspect.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Serilog.Loggers;
 using Core.Entitites.Concrete;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -20,6 +22,7 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
@@ -27,9 +30,6 @@ namespace Business.Concrete
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
             var user = new User
             {
-                AuthToken = null,
-                Claim = null,
-                Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,
                 UserName = userForRegisterDto.UserName,
@@ -43,6 +43,7 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
         }
 
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByUserName(userForLoginDto.UserName);
