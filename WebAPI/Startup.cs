@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Serilog.AspNetCore;
 
 namespace WebAPI
 {
@@ -26,6 +25,8 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+
             services.AddControllers();
 
             services.AddCors(options =>
@@ -34,13 +35,6 @@ namespace WebAPI
             });
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-
-            var loggingOptions = Configuration.GetSection("Serilog").Get<RequestLoggingOptions>();
-
-
-
-            services.AddLogging();
-
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>

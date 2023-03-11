@@ -45,9 +45,9 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id));
         }
 
-        public IDataResult<User> GetByUserName(string userName)
+        public IDataResult<User> GetByUsername(string userName)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u => u.UserName == userName));
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Username == userName));
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(User user)

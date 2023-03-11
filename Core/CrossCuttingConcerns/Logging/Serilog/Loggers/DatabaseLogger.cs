@@ -23,7 +23,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
             _configuration = configuration;
 
             DatabaseLogConfiguration logConfig = configuration
-                                                 .GetSection("Serilog:DatabaseLogConfiguration")
+                                                 .GetSection("Serilog:MSSqlServer")
                                                  .Get<DatabaseLogConfiguration>() ??
                                                  throw new Exception(SerilogMessages.NullOptionsMessages);
 
@@ -67,7 +67,6 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
             };
 
             return columnOptions;
-
         }
     }
 }

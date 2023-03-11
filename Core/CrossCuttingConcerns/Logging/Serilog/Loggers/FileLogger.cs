@@ -15,7 +15,7 @@ namespace Core.CrossCuttingConcerns.Logging.Serilog.Loggers
         {
             _configuration = configuration;
 
-            FileLogConfiguration logConfig = configuration.GetSection("SeriLogConfigurations:FileLogConfiguration")
+            FileLogConfiguration logConfig = configuration.GetSection("Serilog:File")
                                                           .Get<FileLogConfiguration>() ??
                                              throw new Exception(SerilogMessages.NullOptionsMessages);
 

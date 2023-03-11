@@ -34,5 +34,8 @@
         public static string SuccessfullLogin = "Giriş başarılı.";
         public static string UserAlreadyExists = "Bu kullanıcı adı kullanılıyor.";
         public static string AccessTokenCreated = "Token oluşturuldu.";
+        public static string LineAdded = "Yeni hat eklendi";
+        public static string LineUpdated = "Hat güncellendi.";
+        public static string LineDeleted = "Hat silindi.";
     }
 }

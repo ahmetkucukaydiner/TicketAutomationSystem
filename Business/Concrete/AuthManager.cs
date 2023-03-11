@@ -32,7 +32,7 @@ namespace Business.Concrete
             {
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,
-                UserName = userForRegisterDto.UserName,
+                Username = userForRegisterDto.UserName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 IsActive = true
@@ -43,10 +43,10 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
         }
 
-        [LogAspect(typeof(DatabaseLogger))]
+        [LogAspect(typeof(SeqLogger))]
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheck = _userService.GetByUserName(userForLoginDto.UserName);
+            var userToCheck = _userService.GetByUsername(userForLoginDto.Username);
 
             if (userToCheck == null)
             {
@@ -59,11 +59,13 @@ namespace Business.Concrete
             }
 
             return new SuccessDataResult<User>(userToCheck.Data, Messages.SuccessfullLogin);
+
+
         }
 
         public IResult UserExists(string username)
         {
-            if (_userService.GetByUserName(username).Data != null)
+            if (_userService.GetByUsername(username).Data != null)
             {
                 return new ErrorResult(Messages.UserAlreadyExists);
             }

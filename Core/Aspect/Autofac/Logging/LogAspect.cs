@@ -22,12 +22,12 @@ namespace Core.Aspect.Autofac.Logging
             _loggerService = (LoggerService)Activator.CreateInstance(loggerService);
         }
 
-        protected override void OnBefore(IInvocation invocation)
+        protected override void OnException(IInvocation invocation, Exception e)
         {
-            _loggerService.Info(GetLogDetail(invocation).ToString());
+            _loggerService.Info(GetLogDetail(invocation, e).ToString());
         }
 
-        private LogDetailWithException GetLogDetail(IInvocation invocation)
+        private LogDetailWithException GetLogDetail(IInvocation invocation, Exception e)
         {
             var logParameters = new List<LogParameter>();
 
@@ -41,15 +41,16 @@ namespace Core.Aspect.Autofac.Logging
                 });
             }
 
-            var logDetail = new LogDetailWithException
+            var logDetailWithException = new LogDetailWithException
             {
                 MethodName = invocation.Method.Name,
-                LogParameters = logParameters
+                LogParameters = logParameters,
+                ExceptionMessage = e.Message
             };
 
-            _loggerService.Info(JsonConvert.SerializeObject(logDetail));
+            _loggerService.Info(JsonConvert.SerializeObject(logDetailWithException));
 
-            return logDetail;
+            return logDetailWithException;
         }
     }
 }
