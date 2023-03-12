@@ -37,5 +37,8 @@
         public static string LineAdded = "Yeni hat eklendi";
         public static string LineUpdated = "Hat güncellendi.";
         public static string LineDeleted = "Hat silindi.";
+        public static string PriceAdded = "Yeni fiyat eklendi.";
+        public static string PriceDeleted = "Fiyat silindi.";
+        public static string PriceUpdated = "Fiyat güncellendi.";
     }
 }

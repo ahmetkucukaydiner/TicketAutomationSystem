@@ -15,7 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Bus> Buses { get; set; }
         public DbSet<BusOwner> BusOwners { get; set; }
         public DbSet<BusSeat> BusSeats { get; set; }
-        public DbSet<BusStaff> BusStaffes { get; set; }
+        public DbSet<BusStaff> BusStaffs { get; set; }
         public DbSet<BusType> BusTypes { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Customer> Customers { get; set; }
